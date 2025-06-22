@@ -4,9 +4,12 @@ const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require("body-parser");
 const axios = require("axios");
-const PORT=5000
+const PORT = 5000;
 app.use(bodyParser.raw({ type: "application/json" }));
 
+app.get("/", (req, res) => {
+  res.json({ message: "Testing of stripe webhook" });
+});
 app.post("/api/webhook", (req, res) => {
   const sig = req.headers["stripe-signature"];
 
