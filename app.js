@@ -4,6 +4,7 @@ const app = express();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require("body-parser");
 const axios = require("axios");
+const PORT=5000
 app.use(bodyParser.raw({ type: "application/json" }));
 
 app.post("/api/webhook", (req, res) => {
@@ -52,6 +53,6 @@ app.post("/api/webhook", (req, res) => {
   res.status(200).send("Webhook received.");
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log("server running on port 5000");
 });
