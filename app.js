@@ -35,7 +35,7 @@ app.post("/api/webhook", (req, res) => {
     return res.status(400).send("User ID not found in metadata.");
   }
 
-  let url = `https://your-api-domain.com/api/user/${userId}`;
+  let url = `https://powerofaum-module-webhook-manoj.onrender.com/api/user/${userId}`;
   let data;
 
   if (event.type === "checkout.session.completed") {
